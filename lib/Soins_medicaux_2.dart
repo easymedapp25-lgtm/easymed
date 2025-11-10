@@ -41,7 +41,7 @@ class _Soins_medicaux_2State extends State<Soins_medicaux_2> {
       "https://firebasestorage.googleapis.com/v0/b/easy-med-c3f69.firebasestorage.app/o/profile_images%2Favatar-simple.jpg?alt=media&token=cbf516b6-ad37-4c50-852d-58f0b83564d5";
 
   GoogleMapController? mapController;
-  LatLng _center = LatLng(36.7525, 3.0420); // Alger
+  LatLng _center = LatLng(36.7525, 3.0420);
   Marker? _startMarker;
   LatLng? _startLocation;
   final TextEditingController _startController = TextEditingController();
@@ -236,7 +236,6 @@ class _Soins_medicaux_2State extends State<Soins_medicaux_2> {
       ),
       body: Column(
         children: [
-          // Carte
           SizedBox(
             height: 300,
             child: GoogleMap(
@@ -245,7 +244,7 @@ class _Soins_medicaux_2State extends State<Soins_medicaux_2> {
               markers: {if (_startMarker != null) _startMarker!},
             ),
           ),
-          // Formulaire
+
           Padding(
             padding: const EdgeInsets.all(15.0),
             child: Column(

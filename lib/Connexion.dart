@@ -29,7 +29,6 @@ class _ConnexionState extends State<Connexion> {
     String? userId = prefs.getString("user_id");
 
     if (userId != null) {
-      // 🔹 Redirection automatique si l'utilisateur est déjà connecté
       Future.microtask(() {
         Navigator.pushReplacement(
           context,
@@ -77,13 +76,11 @@ class _ConnexionState extends State<Connexion> {
         if (storedHashedPassword == enteredHashedPassword) {
           String userId = userDoc.id;
 
-          // 🔹 Stocker l'ID utilisateur dans SharedPreferences
           final prefs = await SharedPreferences.getInstance();
           await prefs.setString("user_id", userId);
 
-          // 🔹 Vérifier si l'ID est bien enregistré
           print("🔹 ID utilisateur stocké: ${prefs.getString("user_id")}");
-          // 🔹 Rediriger vers Home
+
           Navigator.pushReplacement(
             context,
             MaterialPageRoute(builder: (context) => Home()),
@@ -121,15 +118,11 @@ class _ConnexionState extends State<Connexion> {
                 height: MediaQuery.of(context).size.height * 0.35,
                 decoration: const BoxDecoration(
                   borderRadius: BorderRadius.only(
-                    bottomRight: Radius.circular(
-                      50,
-                    ), // Arrondi uniquement en bas à droite
+                    bottomRight: Radius.circular(50),
                   ),
                   image: DecorationImage(
-                    image: AssetImage(
-                      "assets/images/gloves.jpg",
-                    ), // Image depuis les assets
-                    fit: BoxFit.cover, // Ajustement de l'image
+                    image: AssetImage("assets/images/gloves.jpg"),
+                    fit: BoxFit.cover,
                   ),
                 ),
                 child: Column(
@@ -169,9 +162,7 @@ class _ConnexionState extends State<Connexion> {
                           prefixText: '+213 ',
                           hintText: "Numéro de téléphone",
                           border: OutlineInputBorder(),
-                          prefixIcon: Icon(
-                            Icons.phone,
-                          ), // Optional: Adds a border // Placeholder text
+                          prefixIcon: Icon(Icons.phone),
                         ),
                       ),
                       const SizedBox(height: 20),
@@ -185,9 +176,7 @@ class _ConnexionState extends State<Connexion> {
                           ),
                           hintText: "Mot de passe",
                           border: OutlineInputBorder(),
-                          prefixIcon: Icon(
-                            Icons.lock,
-                          ), // Optional: Adds a border // Placeholder text
+                          prefixIcon: Icon(Icons.lock),
                         ),
                       ),
                       const SizedBox(height: 20),
@@ -196,7 +185,7 @@ class _ConnexionState extends State<Connexion> {
                         style: ButtonStyle(
                           backgroundColor: MaterialStateProperty.all(
                             const Color(0xFFf11477),
-                          ), // Change button color
+                          ),
                           shape: MaterialStateProperty.all(
                             RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(5),
@@ -204,7 +193,7 @@ class _ConnexionState extends State<Connexion> {
                           ),
                           minimumSize: MaterialStateProperty.all(
                             Size(MediaQuery.of(context).size.width * 1, 50),
-                          ), // Width & Height
+                          ),
                         ),
                         child: const Text(
                           "Connexion",

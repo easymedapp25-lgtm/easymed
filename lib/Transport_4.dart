@@ -45,7 +45,7 @@ class _Transport4State extends State<Transport4> {
   void initState() {
     super.initState();
     getUserData();
-    fetchPriceFromFirestore(); // récupération dynamique du prix
+    fetchPriceFromFirestore();
   }
 
   Future<void> getUserData() async {
@@ -97,7 +97,6 @@ class _Transport4State extends State<Transport4> {
         widget.transportType.toLowerCase().contains("equipe")) {
       transportType = "Médicalisé";
     } else {
-      // A default value in case none of the conditions are met
       transportType = "Non spécifié";
     }
 
@@ -118,7 +117,7 @@ class _Transport4State extends State<Transport4> {
 
       if (doc.exists && doc.data() != null) {
         var data = doc.data() as Map<String, dynamic>;
-        // ✅ Convertir proprement même si le champ est un String
+
         double fetchedPrice =
             double.tryParse(data[zone]?.toString() ?? '') ?? 0;
         setState(() {

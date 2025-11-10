@@ -41,7 +41,6 @@ class _Garde_maladeState extends State<Garde_malade> {
       }
 
       if (_selectedDates.isEmpty && _duree == Duree.uneJournee) {
-        // Handle case where user selects "Une journée" but no date
         if (context.mounted) {
           ScaffoldMessenger.of(context).showSnackBar(
             const SnackBar(content: Text("Veuillez sélectionner une date.")),

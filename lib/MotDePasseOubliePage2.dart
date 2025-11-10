@@ -14,7 +14,6 @@ class MotDePasseOubliePage2 extends StatelessWidget {
       body: Center(
         child: Column(
           children: [
-            // 🔹 Bandeau supérieur avec image
             Container(
               width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.height * 0.35,
@@ -45,7 +44,6 @@ class MotDePasseOubliePage2 extends StatelessWidget {
 
             const SizedBox(height: 40),
 
-            // 🔹 Titre bleu
             const Text("Code de vérification", style: blueTitle.customStyle),
 
             const SizedBox(height: 14),
@@ -67,7 +65,6 @@ class MotDePasseOubliePage2 extends StatelessWidget {
                   ),
                   const SizedBox(height: 20),
 
-                  // 🔹 Champ de code
                   TextField(
                     controller: codeController,
                     keyboardType: TextInputType.number,
@@ -80,7 +77,6 @@ class MotDePasseOubliePage2 extends StatelessWidget {
 
                   const SizedBox(height: 20),
 
-                  // 🔹 Bouton rose avec vérification du code
                   ElevatedButton(
                     onPressed: () async {
                       final code = codeController.text.trim();
@@ -106,7 +102,6 @@ class MotDePasseOubliePage2 extends StatelessWidget {
                           credential,
                         );
 
-                        // ✅ Rediriger vers l'étape suivante
                         Navigator.push(
                           context,
                           MaterialPageRoute(
@@ -145,7 +140,6 @@ class MotDePasseOubliePage2 extends StatelessWidget {
 
                   const SizedBox(height: 10),
 
-                  // 🔹 Liens bleus
                   const Text(
                     "Renvoyer le code",
                     style: TextStyle(
@@ -171,7 +165,6 @@ class MotDePasseOubliePage2 extends StatelessWidget {
   }
 }
 
-// 🔹 Style du titre bleu
 class blueTitle {
   static const TextStyle customStyle = TextStyle(
     fontSize: 20,
@@ -180,7 +173,6 @@ class blueTitle {
   );
 }
 
-// 🔹 Style du texte de bouton
 class button {
   static const TextStyle customStyle = TextStyle(
     fontSize: 16,

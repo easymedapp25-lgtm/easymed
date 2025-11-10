@@ -35,8 +35,7 @@ class _Politique_de_confidentialiteState
 
     if (storedUserId != null) {
       setState(() {
-        userId =
-            storedUserId; // Stocke l'ID pour d'autres utilisations si besoin
+        userId = storedUserId;
       });
 
       try {

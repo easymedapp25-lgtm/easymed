@@ -175,7 +175,6 @@ class _Transport3State extends State<Transport3> {
     );
     LatLng currentLatLng = LatLng(position.latitude, position.longitude);
 
-    // Reverse geocoding
     List<Placemark> placemarks = await placemarkFromCoordinates(
       position.latitude,
       position.longitude,

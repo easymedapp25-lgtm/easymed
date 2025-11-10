@@ -5,7 +5,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:crypto/crypto.dart';
 import 'dart:convert';
-import 'AppBar.dart'; // adapter si besoin
+import 'AppBar.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
@@ -44,7 +44,6 @@ class _ProfilState extends State<Profil> {
         nameController.text = userDoc["name"] ?? '';
         phoneController.text = userDoc["phone"] ?? '';
 
-        // Met à jour le provider
         final userProvider = Provider.of<UserProvider>(context, listen: false);
         userProvider.setName(userDoc["name"] ?? '');
         userProvider.setPhone(userDoc["phone"] ?? '');
@@ -72,7 +71,6 @@ class _ProfilState extends State<Profil> {
           .doc(userId)
           .update(dataToUpdate);
 
-      // Mettre à jour le UserProvider
       final userProvider = Provider.of<UserProvider>(context, listen: false);
       userProvider.setName(updatedName);
       userProvider.setPhone(updatedPhone);
@@ -105,11 +103,10 @@ class _ProfilState extends State<Profil> {
           {"profileImage": imageUrl},
         );
 
-        // Met à jour le UserProvider
         final userProvider = Provider.of<UserProvider>(context, listen: false);
         userProvider.setProfileImage(imageUrl);
 
-        setState(() {}); // Pour recharger l'avatar affiché
+        setState(() {});
 
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(content: Text("Photo de profil mise à jour")),

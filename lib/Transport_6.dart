@@ -3,7 +3,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'dart:math';
 import 'AppBar.dart';
 import 'Home.dart';
-import 'Transport_7.dart'; // N'oublie pas d'importer le fichier suivant
+import 'Transport_7.dart';
 
 class Transport_6 extends StatefulWidget {
   final Map<String, dynamic> soignant;

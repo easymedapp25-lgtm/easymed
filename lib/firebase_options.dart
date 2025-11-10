@@ -4,16 +4,6 @@ import 'package:firebase_core/firebase_core.dart' show FirebaseOptions;
 import 'package:flutter/foundation.dart'
     show defaultTargetPlatform, kIsWeb, TargetPlatform;
 
-/// Default [FirebaseOptions] for use with your Firebase apps.
-///
-/// Example:
-/// ```dart
-/// import 'firebase_options.dart';
-/// // ...
-/// await Firebase.initializeApp(
-///   options: DefaultFirebaseOptions.currentPlatform,
-/// );
-/// ```
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
@@ -56,7 +46,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '403001267424',
     projectId: 'easy-med-c3f69',
     storageBucket: 'easy-med-c3f69.firebasestorage.app',
-    iosClientId: '403001267424-bodkdudp5tnq568cmhin3pc6l768e3h2.apps.googleusercontent.com',
+    iosClientId:
+        '403001267424-bodkdudp5tnq568cmhin3pc6l768e3h2.apps.googleusercontent.com',
     iosBundleId: 'com.example.easyMed',
   );
 
@@ -76,7 +67,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '403001267424',
     projectId: 'easy-med-c3f69',
     storageBucket: 'easy-med-c3f69.firebasestorage.app',
-    iosClientId: '403001267424-bodkdudp5tnq568cmhin3pc6l768e3h2.apps.googleusercontent.com',
+    iosClientId:
+        '403001267424-bodkdudp5tnq568cmhin3pc6l768e3h2.apps.googleusercontent.com',
     iosBundleId: 'com.example.easyMed',
   );
 
@@ -87,5 +79,4 @@ class DefaultFirebaseOptions {
     projectId: 'easy-med-c3f69',
     storageBucket: 'easy-med-c3f69.firebasestorage.app',
   );
-
 }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:http/http.dart' as http; // Importez le package http
+import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'AppBar.dart';
 import 'Home.dart';
@@ -19,7 +19,7 @@ class _Consultations_7State extends State<Consultations_7> {
   String? service;
   String? sous_service;
   double? _price;
-  String? _time; // Variable pour le temps de trajet
+  String? _time;
 
   @override
   void initState() {
@@ -28,12 +28,10 @@ class _Consultations_7State extends State<Consultations_7> {
     _fetchRealTimeDrivingTime();
   }
 
-  // Fonction pour calculer le temps de trajet en utilisant une API de navigation
   Future<void> _fetchRealTimeDrivingTime() async {
     final soignant = widget.soignant;
     final GeoPoint? startCoordinates = soignant["startCoordinates"];
 
-    // Coordonnées précises de Zéralda
     const double zeraldaLat = 36.7118;
     const double zeraldaLon = 2.8421;
 
@@ -44,7 +42,6 @@ class _Consultations_7State extends State<Consultations_7> {
       return;
     }
 
-    // REMPLACEZ 'YOUR_API_KEY' par votre véritable clé API
     const String apiKey = 'AIzaSyDVcpZPqNbR87fJZNWVE4v76KmH1GW-3bw';
 
     final Uri url = Uri.parse(

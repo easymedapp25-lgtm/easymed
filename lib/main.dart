@@ -6,7 +6,7 @@ import 'Connexion.dart';
 import 'Home.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
-import 'user_provider.dart'; // Importation de la classe séparée
+import 'user_provider.dart';
 
 import 'firebase_options.dart';
 import 'Home.dart';
@@ -36,7 +36,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Minimal',
-      home: Demarrage(), // Utilisation de la classe séparée
+      home: Demarrage(),
     );
   }
 }

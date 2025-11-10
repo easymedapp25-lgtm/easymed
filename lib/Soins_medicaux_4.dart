@@ -35,8 +35,6 @@ class _Soins_medicaux_4State extends State<Soins_medicaux_4> {
   final String defaultAvatarUrl =
       "https://firebasestorage.googleapis.com/v0/b/easy-med-c3f69.firebasestorage.app/o/profile_images%2Favatar-simple.jpg?alt=media&token=cbf516b6-ad37-4c50-852d-58f0b83564d5";
 
-  // These variables are no longer necessary for the total price,
-  // but they are kept here to avoid errors in the `calculateAndSetPrice` method.
   double? prixTransport;
   double? prixSoins;
   double? prixTotal;
@@ -80,9 +78,7 @@ class _Soins_medicaux_4State extends State<Soins_medicaux_4> {
     }
   }
 
-  // MODIFIED: `calculateAndSetPrice` no longer adds `prixTransport` to `prixTotal`
   void calculateAndSetPrice() {
-    // Transport price calculation is still performed, but not used for `prixTotal`
     double distanceKm = calculateDistanceInKm(
       widget.startCoordinates,
       zeraldaCoordinates,
@@ -90,10 +86,9 @@ class _Soins_medicaux_4State extends State<Soins_medicaux_4> {
     prixTransport = calculateTransportPrice(distanceKm);
 
     prixSoins = double.tryParse(widget.price) ?? 0;
-    // The total price is now just the price of the care
     prixTotal = prixSoins!;
 
-    setState(() {}); // Refresh the UI
+    setState(() {});
   }
 
   double calculateDistanceInKm(LatLng start, LatLng end) {
@@ -232,27 +227,7 @@ class _Soins_medicaux_4State extends State<Soins_medicaux_4> {
                     ],
                   ),
                   const SizedBox(height: 10),
-                  // REMOVED: The Row for "Transport" is no longer visible
-                  // If you want to keep the code but hide it, you can wrap it in Visibility(visible: false, child: ...)
-                  // Row(
-                  //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  //   children: [
-                  //     const Text(
-                  //       "🚗 Transport :",
-                  //       style: TextStyle(
-                  //         fontSize: 16,
-                  //         fontWeight: FontWeight.bold,
-                  //       ),
-                  //     ),
-                  //     Text(
-                  //       "${prixTransport?.toStringAsFixed(0) ?? "..."} DA",
-                  //       style: const TextStyle(
-                  //         fontSize: 16,
-                  //         color: Colors.black87,
-                  //       ),
-                  //     ),
-                  //   ],
-                  // ),
+
                   const Divider(height: 30, thickness: 1),
                   const Text(
                     "💰 Total à payer :",
@@ -302,7 +277,6 @@ class _Soins_medicaux_4State extends State<Soins_medicaux_4> {
                               ),
                               'endCoordinates': null,
                               'prix': prixTotal ?? 0.0,
-                              // MODIFIED: The transport price is now explicitly set to 0.0
                               'prixTransport': 0.0,
                               'prixSoins': prixSoins ?? 0.0,
                               'status': 'en_attente',

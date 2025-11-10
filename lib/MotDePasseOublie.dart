@@ -13,7 +13,6 @@ class MotDePasseOublie extends StatelessWidget {
       body: Center(
         child: Column(
           children: [
-            // 🔹 Image en haut avec le logo, comme Connexion
             Container(
               width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.height * 0.35,
@@ -72,7 +71,7 @@ class MotDePasseOublie extends StatelessWidget {
                   ElevatedButton(
                     onPressed: () async {
                       final phoneNumber = "+213${phoneController.text.trim()}";
-                      // Désactivation de reCAPTCHA pour les tests
+
                       await FirebaseAuth.instance.setSettings(
                         appVerificationDisabledForTesting: true,
                       );

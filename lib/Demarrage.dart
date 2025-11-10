@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 
-// Importez l'écran de mise à jour séparé
 import 'UpdateScreen.dart';
 
 import 'Home.dart';

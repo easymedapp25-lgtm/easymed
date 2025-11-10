@@ -182,7 +182,6 @@ class _Consultations_2State extends State<Consultations_2> {
       appBar: CustomAppBar(showBackButton: true),
       body: Column(
         children: [
-          // Carte
           Container(
             height: 300,
             child: GoogleMap(
@@ -191,7 +190,7 @@ class _Consultations_2State extends State<Consultations_2> {
               markers: {if (_startMarker != null) _startMarker!},
             ),
           ),
-          // Formulaire
+
           Padding(
             padding: const EdgeInsets.all(15.0),
             child: Column(

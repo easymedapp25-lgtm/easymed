@@ -15,13 +15,12 @@ class Inscription extends StatefulWidget {
 }
 
 class _InscriptionState extends State<Inscription> {
-  bool _isLoading = false; // État de chargement
+  bool _isLoading = false;
 
   TextEditingController nameController = TextEditingController();
   TextEditingController telController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
-  // Firestore instance
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
   @override
   void dispose() {
@@ -67,7 +66,6 @@ class _InscriptionState extends State<Inscription> {
     }
 
     try {
-      // Check if the phone number already exists
       QuerySnapshot querySnapshot = await _firestore
           .collection("users")
           .where("phone", isEqualTo: phone)
@@ -83,7 +81,7 @@ class _InscriptionState extends State<Inscription> {
 
         return;
       }
-      // Envoyer le code de vérification
+
       await _auth.verifyPhoneNumber(
         phoneNumber: phone,
         verificationCompleted: (PhoneAuthCredential credential) async {
@@ -104,7 +102,7 @@ class _InscriptionState extends State<Inscription> {
           setState(() {
             _isLoading = false;
           });
-          // Aller vers l'écran de vérification
+
           Navigator.push(
             context,
             MaterialPageRoute(
@@ -145,15 +143,11 @@ class _InscriptionState extends State<Inscription> {
                 height: MediaQuery.of(context).size.height * 0.35,
                 decoration: const BoxDecoration(
                   borderRadius: BorderRadius.only(
-                    bottomRight: Radius.circular(
-                      50,
-                    ), // Arrondi uniquement en bas à droite
+                    bottomRight: Radius.circular(50),
                   ),
                   image: DecorationImage(
-                    image: AssetImage(
-                      "assets/images/gloves.jpg",
-                    ), // Image depuis les assets
-                    fit: BoxFit.cover, // Ajustement de l'image
+                    image: AssetImage("assets/images/gloves.jpg"),
+                    fit: BoxFit.cover,
                   ),
                 ),
                 child: Column(
@@ -191,8 +185,7 @@ class _InscriptionState extends State<Inscription> {
                           ),
                           hintText: "Nom et prénom",
                           prefixIcon: Icon(Icons.person),
-                          border:
-                              OutlineInputBorder(), // Optional: Adds a border // Placeholder text
+                          border: OutlineInputBorder(),
                         ),
                       ),
                       const SizedBox(height: 20),
@@ -209,7 +202,7 @@ class _InscriptionState extends State<Inscription> {
                             child: Row(
                               mainAxisSize: MainAxisSize.min,
                               children: const [
-                                Icon(Icons.phone), // couleur manuelle
+                                Icon(Icons.phone),
                                 SizedBox(width: 6),
                                 Text(
                                   '+213',
@@ -223,7 +216,6 @@ class _InscriptionState extends State<Inscription> {
                           ),
                           hintText: "Numéro de téléphone",
                           border: OutlineInputBorder(),
-                          // Optional: Adds a border // Placeholder text
                         ),
                       ),
                       const SizedBox(height: 20),
@@ -237,9 +229,7 @@ class _InscriptionState extends State<Inscription> {
                           ),
                           hintText: "Mot de passe",
                           border: OutlineInputBorder(),
-                          prefixIcon: Icon(
-                            Icons.lock,
-                          ), // Optional: Adds a border // Placeholder text
+                          prefixIcon: Icon(Icons.lock),
                         ),
                       ),
                       const SizedBox(height: 20),
@@ -252,7 +242,7 @@ class _InscriptionState extends State<Inscription> {
                               style: ButtonStyle(
                                 backgroundColor: MaterialStateProperty.all(
                                   const Color(0xFFf11477),
-                                ), // Change button color
+                                ),
                                 shape: MaterialStateProperty.all(
                                   RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(5),
@@ -263,7 +253,7 @@ class _InscriptionState extends State<Inscription> {
                                     MediaQuery.of(context).size.width * 1,
                                     50,
                                   ),
-                                ), // Width & Height
+                                ),
                               ),
                               child: const Text(
                                 "Je m'inscris",

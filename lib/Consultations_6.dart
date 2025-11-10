@@ -19,22 +19,19 @@ class _Consultations_6State extends State<Consultations_6> {
   String? service;
   String? sous_service;
   double? _price;
-  String? _time; // La variable sera une String pour gérer le "Non disponible"
-
+  String? _time;
   @override
   void initState() {
     super.initState();
     _listenToStatusChanges();
-    // Appel de la nouvelle fonction pour calculer le temps en temps réel
+
     _fetchRealTimeDrivingTime();
   }
 
-  // Fonction pour calculer le temps de trajet en utilisant une API de navigation
   Future<void> _fetchRealTimeDrivingTime() async {
     final soignant = widget.soignant;
     final GeoPoint? startCoordinates = soignant["startCoordinates"];
 
-    // Coordonnées précises de Zéralda
     const double zeraldaLat = 36.7118;
     const double zeraldaLon = 2.8421;
 
@@ -45,7 +42,6 @@ class _Consultations_6State extends State<Consultations_6> {
       return;
     }
 
-    // REMPLACEZ 'YOUR_API_KEY' par votre véritable clé API
     const String apiKey = 'AIzaSyDVcpZPqNbR87fJZNWVE4v76KmH1GW-3bw';
 
     final Uri url = Uri.parse(
@@ -101,7 +97,6 @@ class _Consultations_6State extends State<Consultations_6> {
                 service = data?['service'];
                 sous_service = data?['sous-service'];
                 _price = data?['prix']?.toDouble();
-                // On ne récupère plus le temps de la BDD, il sera calculé par l'API
               });
 
               if (status == 'arrivé') {
@@ -248,7 +243,6 @@ class _Consultations_6State extends State<Consultations_6> {
                         ),
                       ),
                       Expanded(
-                        // Ajout de Expanded pour éviter le débordement
                         child: Text(
                           _time ?? 'Calcul en cours...',
                           style: const TextStyle(

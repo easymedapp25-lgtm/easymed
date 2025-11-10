@@ -7,28 +7,23 @@ class Equipement extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(60), // Hauteur du header
+        preferredSize: const Size.fromHeight(60),
         child: AppBar(
-          iconTheme: const IconThemeData(
-            color: Colors
-                .white, // Changer la couleur de l'icône de retour en blanc
-          ),
-          backgroundColor:
-              Colors.transparent, // Transparent pour voir l’image de fond
-          elevation: 0, // Supprime l'ombre
+          iconTheme: const IconThemeData(color: Colors.white),
+          backgroundColor: Colors.transparent,
+          elevation: 0,
           flexibleSpace: Container(
             decoration: const BoxDecoration(
               image: DecorationImage(
                 image: AssetImage('assets/images/pink_header_3.png'),
-                fit: BoxFit.cover, // Couvre tout l’espace
-                alignment: Alignment.bottomCenter, // Centre le bas de l’image
+                fit: BoxFit.cover,
+                alignment: Alignment.bottomCenter,
               ),
             ),
           ),
           title: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              // Texte centré
               const Text(
                 "Bonjour, [Utilisateur]",
                 style: TextStyle(
@@ -38,14 +33,12 @@ class Equipement extends StatelessWidget {
                 ),
               ),
 
-              // Avatar à droite
               Container(
-                width: 50, // Taille de l’avatar
+                width: 50,
                 height: 50,
                 decoration: BoxDecoration(
-                  shape: BoxShape.circle, // Rend l’image ronde
-                  border: Border.all(
-                      color: Colors.white, width: 2), // Bordure blanche
+                  shape: BoxShape.circle,
+                  border: Border.all(color: Colors.white, width: 2),
                   image: const DecorationImage(
                     image: AssetImage("assets/images/avatar.jpg"),
                     fit: BoxFit.cover,
@@ -56,9 +49,7 @@ class Equipement extends StatelessWidget {
           ),
         ),
       ),
-      body: const Center(
-        child: Text("Équipements"),
-      ),
+      body: const Center(child: Text("Équipements")),
     );
   }
 }

@@ -22,7 +22,7 @@ class _TransportState extends State<Transport> {
   String userPhone = "...";
 
   String userId = "";
-  String? selectedTransport; // Stocke la sélection
+  String? selectedTransport;
   void initState() {
     super.initState();
     Provider.of<UserProvider>(context, listen: false).fetchUserData();
@@ -172,11 +172,9 @@ class _TransportState extends State<Transport> {
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     padding: const EdgeInsets.symmetric(vertical: 15),
-                    backgroundColor: const Color(
-                      0xFF1170AD,
-                    ), // Bleu personnalisé
+                    backgroundColor: const Color(0xFF1170AD),
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(4), // Radius 4
+                      borderRadius: BorderRadius.circular(4),
                     ),
                   ),
                   onPressed: () {
@@ -202,10 +200,7 @@ class _TransportState extends State<Transport> {
                   },
                   child: const Text(
                     "Confirmer",
-                    style: TextStyle(
-                      fontSize: 16,
-                      color: Colors.white, // Texte blanc
-                    ),
+                    style: TextStyle(fontSize: 16, color: Colors.white),
                   ),
                 ),
               ),

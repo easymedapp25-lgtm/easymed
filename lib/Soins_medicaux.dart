@@ -38,13 +38,12 @@ class _Soins_medicauxState extends State<Soins_medicaux> {
     super.initState();
     Provider.of<UserProvider>(context, listen: false).fetchUserData();
     getUserData();
-    fetchSoins(); // Nouvelle fonction pour charger les données
+    fetchSoins();
     _focusNode.addListener(() {
       setState(() => showDropdown = _focusNode.hasFocus);
     });
   }
 
-  // Fonction pour récupérer les soins et leurs prix depuis Firestore
   Future<void> fetchSoins() async {
     try {
       final doc = await FirebaseFirestore.instance

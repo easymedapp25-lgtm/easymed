@@ -57,7 +57,6 @@ class _Hospitalisation_successState extends State<Hospitalisation_success> {
                   ),
                 ),
                 onPressed: () {
-                  // Naviguer vers l'écran d'accueil
                   Navigator.of(context).popUntil((route) => route.isFirst);
                 },
                 child: const Text(

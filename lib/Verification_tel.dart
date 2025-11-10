@@ -2,7 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'Choisir_photo.dart'; // ← adapte le nom si besoin
+import 'Choisir_photo.dart';
 
 class Verification_tel extends StatefulWidget {
   final String verificationId;
@@ -41,20 +41,17 @@ class _VerificationScreenState extends State<Verification_tel> {
       isLoading = true;
     });
     try {
-      // ✅ Étape 1 : Vérifier le code
       PhoneAuthCredential credential = PhoneAuthProvider.credential(
         verificationId: widget.verificationId,
         smsCode: code,
       );
 
-      // ✅ Authentification avec Firebase
       UserCredential userCredential = await _auth.signInWithCredential(
         credential,
       );
 
       String uid = userCredential.user!.uid;
 
-      // ✅ Étape 2 : Enregistrer dans Firestore avec le même UID
       await _firestore.collection("users").doc(uid).set({
         "name": widget.name,
         "phone": widget.phone,
@@ -67,7 +64,6 @@ class _VerificationScreenState extends State<Verification_tel> {
         context,
       ).showSnackBar(const SnackBar(content: Text("Inscription réussie !")));
 
-      // ✅ Rediriger vers Choisir_photo avec l’UID
       final prefs = await SharedPreferences.getInstance();
       await prefs.setString("user_id", uid);
       Navigator.push(

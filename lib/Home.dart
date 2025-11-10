@@ -45,8 +45,7 @@ class _HomeState extends State<Home> {
 
     if (storedUserId != null) {
       setState(() {
-        userId =
-            storedUserId; // Stocke l'ID pour d'autres utilisations si besoin
+        userId = storedUserId;
       });
 
       try {
@@ -89,28 +88,25 @@ class _HomeState extends State<Home> {
     return Scaffold(
       key: _scaffoldKey,
       appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(60), // Hauteur du header
+        preferredSize: const Size.fromHeight(60),
         child: AppBar(
-          backgroundColor:
-              Colors.transparent, // Transparent pour voir l’image de fond
-          elevation: 0, // Supprime l'ombre
+          backgroundColor: Colors.transparent,
+          elevation: 0,
           flexibleSpace: Container(
             decoration: const BoxDecoration(
               image: DecorationImage(
                 image: AssetImage('assets/images/pink_header_3.png'),
-                fit: BoxFit.cover, // Couvre tout l’espace
-                alignment: Alignment.bottomCenter, // Centre le bas de l’image
+                fit: BoxFit.cover,
+                alignment: Alignment.bottomCenter,
               ),
             ),
           ),
           title: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              // Icône à gauche
               GestureDetector(
                 onTap: () {
-                  _scaffoldKey.currentState
-                      ?.openDrawer(); // Ouvre le Drawer quand on clique
+                  _scaffoldKey.currentState?.openDrawer();
                 },
                 child: const Icon(Icons.menu, color: Colors.white, size: 30),
               ),
@@ -124,16 +120,12 @@ class _HomeState extends State<Home> {
                 ),
               ),
 
-              // Avatar à droite
               Container(
-                width: 50, // Taille de l’avatar
+                width: 50,
                 height: 50,
                 decoration: BoxDecoration(
-                  shape: BoxShape.circle, // Rend l’image ronde
-                  border: Border.all(
-                    color: Colors.white,
-                    width: 2,
-                  ), // Bordure blanche
+                  shape: BoxShape.circle,
+                  border: Border.all(color: Colors.white, width: 2),
                   image: DecorationImage(
                     image:
                         userProfilePic.startsWith('http') ||
@@ -169,7 +161,6 @@ class _HomeState extends State<Home> {
               children: [
                 GestureDetector(
                   onTap: () {
-                    // Lorsque le container est cliqué, on navigue vers la page Soinsmedicaux
                     Navigator.push(
                       context,
                       MaterialPageRoute(
@@ -181,21 +172,14 @@ class _HomeState extends State<Home> {
                     width: MediaQuery.of(context).size.width * 0.35,
                     height: 100,
                     decoration: BoxDecoration(
-                      color: Colors.white, // Couleur du fond
-                      borderRadius: BorderRadius.circular(
-                        10,
-                      ), // Coins arrondis (facultatif)
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(10),
                       boxShadow: [
                         BoxShadow(
-                          color: Colors.black.withOpacity(
-                            0.2,
-                          ), // Couleur de l'ombre
-                          spreadRadius: 5, // Étendue de l'ombre
-                          blurRadius: 7, // Flou de l'ombre
-                          offset: const Offset(
-                            0,
-                            3,
-                          ), // Décalage de l'ombre (horizontal, vertical)
+                          color: Colors.black.withOpacity(0.2),
+                          spreadRadius: 5,
+                          blurRadius: 7,
+                          offset: const Offset(0, 3),
                         ),
                       ],
                     ),
@@ -203,7 +187,7 @@ class _HomeState extends State<Home> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         SizedBox(
-                          height: 50, // 90% de l'écran
+                          height: 50,
                           child: Image.asset(
                             'assets/images/soin_medical.png',
                             fit: BoxFit.cover,
@@ -221,7 +205,6 @@ class _HomeState extends State<Home> {
                 SizedBox(width: MediaQuery.of(context).size.width * 0.1),
                 GestureDetector(
                   onTap: () {
-                    // Lorsque le container est cliqué, on navigue vers la page Soinsmedicaux
                     Navigator.push(
                       context,
                       MaterialPageRoute(
@@ -233,21 +216,14 @@ class _HomeState extends State<Home> {
                     width: MediaQuery.of(context).size.width * 0.35,
                     height: 100,
                     decoration: BoxDecoration(
-                      color: Colors.white, // Couleur du fond
-                      borderRadius: BorderRadius.circular(
-                        10,
-                      ), // Coins arrondis (facultatif)
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(10),
                       boxShadow: [
                         BoxShadow(
-                          color: Colors.black.withOpacity(
-                            0.2,
-                          ), // Couleur de l'ombre
-                          spreadRadius: 5, // Étendue de l'ombre
-                          blurRadius: 7, // Flou de l'ombre
-                          offset: const Offset(
-                            0,
-                            3,
-                          ), // Décalage de l'ombre (horizontal, vertical)
+                          color: Colors.black.withOpacity(0.2),
+                          spreadRadius: 5,
+                          blurRadius: 7,
+                          offset: const Offset(0, 3),
                         ),
                       ],
                     ),
@@ -275,7 +251,6 @@ class _HomeState extends State<Home> {
               children: [
                 GestureDetector(
                   onTap: () {
-                    // Lorsque le container est cliqué, on navigue vers la page Soinsmedicaux
                     Navigator.push(
                       context,
                       MaterialPageRoute(builder: (context) => Consultations()),
@@ -285,21 +260,14 @@ class _HomeState extends State<Home> {
                     width: MediaQuery.of(context).size.width * 0.35,
                     height: 100,
                     decoration: BoxDecoration(
-                      color: Colors.white, // Couleur du fond
-                      borderRadius: BorderRadius.circular(
-                        10,
-                      ), // Coins arrondis (facultatif)
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(10),
                       boxShadow: [
                         BoxShadow(
-                          color: Colors.black.withOpacity(
-                            0.2,
-                          ), // Couleur de l'ombre
-                          spreadRadius: 5, // Étendue de l'ombre
-                          blurRadius: 7, // Flou de l'ombre
-                          offset: const Offset(
-                            0,
-                            3,
-                          ), // Décalage de l'ombre (horizontal, vertical)
+                          color: Colors.black.withOpacity(0.2),
+                          spreadRadius: 5,
+                          blurRadius: 7,
+                          offset: const Offset(0, 3),
                         ),
                       ],
                     ),
@@ -307,7 +275,7 @@ class _HomeState extends State<Home> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         SizedBox(
-                          height: 50, // 90% de l'écran
+                          height: 50,
                           child: Image.asset(
                             'assets/images/consultation.png',
                             fit: BoxFit.cover,
@@ -325,7 +293,6 @@ class _HomeState extends State<Home> {
                 SizedBox(width: MediaQuery.of(context).size.width * 0.1),
                 GestureDetector(
                   onTap: () {
-                    // Lorsque le container est cliqué, on navigue vers la page Soinsmedicaux
                     Navigator.push(
                       context,
                       MaterialPageRoute(
@@ -337,21 +304,14 @@ class _HomeState extends State<Home> {
                     width: MediaQuery.of(context).size.width * 0.35,
                     height: 100,
                     decoration: BoxDecoration(
-                      color: Colors.white, // Couleur du fond
-                      borderRadius: BorderRadius.circular(
-                        10,
-                      ), // Coins arrondis (facultatif)
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(10),
                       boxShadow: [
                         BoxShadow(
-                          color: Colors.black.withOpacity(
-                            0.2,
-                          ), // Couleur de l'ombre
-                          spreadRadius: 5, // Étendue de l'ombre
-                          blurRadius: 7, // Flou de l'ombre
-                          offset: const Offset(
-                            0,
-                            3,
-                          ), // Décalage de l'ombre (horizontal, vertical)
+                          color: Colors.black.withOpacity(0.2),
+                          spreadRadius: 5,
+                          blurRadius: 7,
+                          offset: const Offset(0, 3),
                         ),
                       ],
                     ),
@@ -384,7 +344,6 @@ class _HomeState extends State<Home> {
                 const SizedBox(height: 10),
                 GestureDetector(
                   onTap: () {
-                    // Lorsque le container est cliqué, on navigue vers la page Soinsmedicaux
                     Navigator.push(
                       context,
                       MaterialPageRoute(
@@ -396,22 +355,14 @@ class _HomeState extends State<Home> {
                     padding: const EdgeInsets.all(8.0),
                     width: MediaQuery.of(context).size.width * 0.8,
                     decoration: BoxDecoration(
-                      // Couleur du fond
                       color: const Color(0xFFF11477),
-                      borderRadius: BorderRadius.circular(
-                        10,
-                      ), // Coins arrondis (facultatif)
+                      borderRadius: BorderRadius.circular(10),
                       boxShadow: [
                         BoxShadow(
-                          color: Colors.black.withOpacity(
-                            0.1,
-                          ), // Couleur de l'ombre
-                          spreadRadius: 3, // Étendue de l'ombre
-                          blurRadius: 5, // Flou de l'ombre
-                          offset: const Offset(
-                            0,
-                            3,
-                          ), // Décalage de l'ombre (horizontal, vertical)
+                          color: Colors.black.withOpacity(0.1),
+                          spreadRadius: 3,
+                          blurRadius: 5,
+                          offset: const Offset(0, 3),
                         ),
                       ],
                     ),
@@ -437,7 +388,6 @@ class _HomeState extends State<Home> {
                 const SizedBox(height: 10),
                 GestureDetector(
                   onTap: () {
-                    // Lorsque le container est cliqué, on navigue vers la page Soinsmedicaux
                     Navigator.push(
                       context,
                       MaterialPageRoute(
@@ -449,22 +399,14 @@ class _HomeState extends State<Home> {
                     padding: const EdgeInsets.all(8.0),
                     width: MediaQuery.of(context).size.width * 0.8,
                     decoration: BoxDecoration(
-                      // Couleur du fond
                       color: const Color(0xFFF11477),
-                      borderRadius: BorderRadius.circular(
-                        10,
-                      ), // Coins arrondis (facultatif)
+                      borderRadius: BorderRadius.circular(10),
                       boxShadow: [
                         BoxShadow(
-                          color: Colors.black.withOpacity(
-                            0.1,
-                          ), // Couleur de l'ombre
-                          spreadRadius: 3, // Étendue de l'ombre
-                          blurRadius: 5, // Flou de l'ombre
-                          offset: const Offset(
-                            0,
-                            3,
-                          ), // Décalage de l'ombre (horizontal, vertical)
+                          color: Colors.black.withOpacity(0.1),
+                          spreadRadius: 3,
+                          blurRadius: 5,
+                          offset: const Offset(0, 3),
                         ),
                       ],
                     ),
@@ -490,7 +432,6 @@ class _HomeState extends State<Home> {
                 const SizedBox(height: 10),
                 GestureDetector(
                   onTap: () {
-                    // Lorsque le container est cliqué, on navigue vers la page Soinsmedicaux
                     Navigator.push(
                       context,
                       MaterialPageRoute(builder: (context) => Consultations()),
@@ -500,22 +441,14 @@ class _HomeState extends State<Home> {
                     padding: const EdgeInsets.all(8.0),
                     width: MediaQuery.of(context).size.width * 0.8,
                     decoration: BoxDecoration(
-                      // Couleur du fond
                       color: const Color(0xFFC2BABE),
-                      borderRadius: BorderRadius.circular(
-                        10,
-                      ), // Coins arrondis (facultatif)
+                      borderRadius: BorderRadius.circular(10),
                       boxShadow: [
                         BoxShadow(
-                          color: Colors.black.withOpacity(
-                            0.1,
-                          ), // Couleur de l'ombre
-                          spreadRadius: 3, // Étendue de l'ombre
-                          blurRadius: 5, // Flou de l'ombre
-                          offset: const Offset(
-                            0,
-                            3,
-                          ), // Décalage de l'ombre (horizontal, vertical)
+                          color: Colors.black.withOpacity(0.1),
+                          spreadRadius: 3,
+                          blurRadius: 5,
+                          offset: const Offset(0, 3),
                         ),
                       ],
                     ),

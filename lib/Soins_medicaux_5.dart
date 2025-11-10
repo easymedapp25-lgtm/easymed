@@ -141,7 +141,6 @@ class _Soins_medicaux_5State extends State<Soins_medicaux_5> {
                   .then((soignantDoc) {
                     if (soignantDoc.exists) {
                       final soignant = soignantDoc.data()!;
-                      // On ajoute les coordonnées de la demande au Map soignant
                       soignant['startCoordinates'] = data['startCoordinates'];
 
                       soignant['demandeId'] = snapshot.data!.id;

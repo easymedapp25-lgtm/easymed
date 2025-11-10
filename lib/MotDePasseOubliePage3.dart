@@ -30,7 +30,6 @@ class MotDePasseOubliePage3 extends StatelessWidget {
     final phone = user.phoneNumber;
 
     try {
-      // 🔥 Met à jour dans la collection "users"
       final snapshot = await FirebaseFirestore.instance
           .collection('users')
           .where('phone', isEqualTo: phone)
@@ -50,7 +49,6 @@ class MotDePasseOubliePage3 extends StatelessWidget {
           ),
         );
 
-        // 🔁 Retour à la première page
         Navigator.popUntil(context, (route) => route.isFirst);
       } else {
         ScaffoldMessenger.of(context).showSnackBar(
@@ -74,13 +72,13 @@ class MotDePasseOubliePage3 extends StatelessWidget {
         ),
         actions: [
           TextButton(
-            onPressed: () => Navigator.of(context).pop(), // Fermer
+            onPressed: () => Navigator.of(context).pop(),
             child: const Text("Annuler"),
           ),
           TextButton(
             onPressed: () {
-              Navigator.of(context).pop(); // Fermer la popup
-              _updatePassword(context); // Mettre à jour
+              Navigator.of(context).pop();
+              _updatePassword(context);
             },
             child: const Text("Confirmer"),
           ),
@@ -95,7 +93,6 @@ class MotDePasseOubliePage3 extends StatelessWidget {
       body: Center(
         child: Column(
           children: [
-            // 🔹 Bandeau supérieur avec image et logo
             Container(
               width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.height * 0.35,
@@ -183,7 +180,6 @@ class MotDePasseOubliePage3 extends StatelessWidget {
   }
 }
 
-// 🔹 Styles
 class blueTitle {
   static const TextStyle customStyle = TextStyle(
     fontSize: 20,

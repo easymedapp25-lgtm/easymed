@@ -18,8 +18,7 @@ class _HospitalisationState extends State<Hospitalisation> {
       TextEditingController();
   final TextEditingController horaireDebutController = TextEditingController();
   final TextEditingController horaireFinController = TextEditingController();
-  final TextEditingController dureeJoursController =
-      TextEditingController(); // Nouveau contrôleur pour le nombre de jours
+  final TextEditingController dureeJoursController = TextEditingController();
 
   String? _sexe;
 
@@ -45,8 +44,7 @@ class _HospitalisationState extends State<Hospitalisation> {
               'sexe': _sexe,
               'age': ageController.text,
               'besoinsSpecifiques': besoinsSpecifiquesController.text,
-              'duree_en_jours':
-                  dureeJoursController.text, // Nouveau champ pour la durée
+              'duree_en_jours': dureeJoursController.text,
               'horaire_debut': horaireDebutController.text,
               'horaire_fin': horaireFinController.text,
               'createdAt': FieldValue.serverTimestamp(),
@@ -150,7 +148,7 @@ class _HospitalisationState extends State<Hospitalisation> {
                   },
                 ),
                 const SizedBox(height: 20),
-                // Nouveau champ pour la durée
+
                 TextFormField(
                   controller: dureeJoursController,
                   keyboardType: TextInputType.number,

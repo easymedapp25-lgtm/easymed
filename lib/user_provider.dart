@@ -9,14 +9,12 @@ class UserProvider with ChangeNotifier {
   String _profileImage = "";
   String _type = "";
 
-  // 🔸 Getters
   String get userId => _userId;
   String get name => _name;
   String get phone => _phone;
   String get profileImage => _profileImage;
   String get type => _type;
 
-  // 🔹 Récupère les données utilisateur depuis Firestore via userId stocké en SharedPreferences
   Future<void> fetchUserData() async {
     final prefs = await SharedPreferences.getInstance();
     _userId = prefs.getString("user_id") ?? "";
@@ -34,7 +32,7 @@ class UserProvider with ChangeNotifier {
         _phone = data['phone'] ?? "";
         _profileImage = data['profileImage'] ?? "";
         _type = data['type'] ?? "";
-        notifyListeners(); // 🔄 Notifie les widgets qui écoutent ce provider
+        notifyListeners();
       }
     }
   }

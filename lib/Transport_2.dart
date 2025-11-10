@@ -40,7 +40,7 @@ class _Transport2State extends State<Transport2> {
       "https://firebasestorage.googleapis.com/v0/b/easy-med-c3f69.firebasestorage.app/o/profile_images%2Favatar-simple.jpg?alt=media&token=cbf516b6-ad37-4c50-852d-58f0b83564d5";
 
   GoogleMapController? mapController;
-  LatLng _center = LatLng(36.7525, 3.0420); // Alger
+  LatLng _center = LatLng(36.7525, 3.0420);
   Marker? _startMarker;
   LatLng? _startLocation;
   final TextEditingController _startController = TextEditingController();
@@ -104,7 +104,7 @@ class _Transport2State extends State<Transport2> {
       final detail = await plist.getDetailsByPlaceId(place.placeId!);
       final geometry = detail.result.geometry!;
       final latLng = LatLng(geometry.location.lat, geometry.location.lng);
-      // Vérifie si la ville est Alger
+
       bool isInAlgeria = false;
       for (var component in detail.result.addressComponents) {
         if (component.types.contains("country") &&
@@ -168,7 +168,6 @@ class _Transport2State extends State<Transport2> {
     );
     LatLng currentLatLng = LatLng(position.latitude, position.longitude);
 
-    // Reverse geocoding
     List<Placemark> placemarks = await placemarkFromCoordinates(
       position.latitude,
       position.longitude,
@@ -252,7 +251,6 @@ class _Transport2State extends State<Transport2> {
       ),
       body: Column(
         children: [
-          // Carte
           Container(
             height: 300,
             child: GoogleMap(
@@ -261,7 +259,7 @@ class _Transport2State extends State<Transport2> {
               markers: {if (_startMarker != null) _startMarker!},
             ),
           ),
-          // Formulaire
+
           Padding(
             padding: const EdgeInsets.all(15.0),
             child: Column(

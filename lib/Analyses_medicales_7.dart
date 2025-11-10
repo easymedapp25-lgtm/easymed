@@ -17,8 +17,7 @@ class Analyses_medicales_7 extends StatefulWidget {
 class _Analyses_medicales_7State extends State<Analyses_medicales_7> {
   String? service;
   String? sous_service;
-  double? _price; // Nouvelle variable pour stocker le prix de la BDD
-
+  double? _price;
   @override
   void initState() {
     super.initState();
@@ -39,8 +38,7 @@ class _Analyses_medicales_7State extends State<Analyses_medicales_7> {
               setState(() {
                 service = data?['service'];
                 sous_service = data?['sous-service'];
-                _price = data?['prix']
-                    ?.toDouble(); // Récupérer le prix de la BDD
+                _price = data?['prix']?.toDouble();
               });
 
               if (status == 'validé_soignant') {

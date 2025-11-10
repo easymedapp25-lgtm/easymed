@@ -36,8 +36,7 @@ class _Drawer_menuState extends State<Drawer_menu> {
 
     if (storedUserId != null) {
       setState(() {
-        userId =
-            storedUserId; // Stocke l'ID pour d'autres utilisations si besoin
+        userId = storedUserId;
       });
 
       try {
@@ -48,8 +47,7 @@ class _Drawer_menuState extends State<Drawer_menu> {
 
         if (userDoc.exists) {
           setState(() {
-            userName =
-                userDoc["name"]; // 🔥 Assure-toi que le champ est bien "name"
+            userName = userDoc["name"];
             userPhone = userDoc["phone"];
             String? profileImage = userDoc["profileImage"];
             userProfilePic =
@@ -109,16 +107,11 @@ class _Drawer_menuState extends State<Drawer_menu> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
-                  width:
-                      MediaQuery.of(context).size.width *
-                      0.4, // Taille de l’avatar
+                  width: MediaQuery.of(context).size.width * 0.4,
                   height: MediaQuery.of(context).size.width * 0.4,
                   decoration: BoxDecoration(
-                    shape: BoxShape.circle, // Rend l’image ronde
-                    border: Border.all(
-                      color: Colors.white,
-                      width: 2,
-                    ), // Bordure blanche
+                    shape: BoxShape.circle,
+                    border: Border.all(color: Colors.white, width: 2),
                     image: DecorationImage(
                       image:
                           userProfilePic.startsWith('http') ||
@@ -149,21 +142,17 @@ class _Drawer_menuState extends State<Drawer_menu> {
           Positioned(
             child: ListView(
               padding: EdgeInsets.only(
-                top:
-                    MediaQuery.of(context).size.height *
-                    0.5, // 50% of the screen height
+                top: MediaQuery.of(context).size.height * 0.5,
               ),
               children: [
                 ListTile(
                   leading: const Icon(Icons.person, color: Colors.black),
                   title: const Text("Profil", style: menu_link.customStyle),
                   onTap: () {
-                    Navigator.pop(context); // Ferme le Drawer
+                    Navigator.pop(context);
                     Navigator.push(
                       context,
-                      MaterialPageRoute(
-                        builder: (context) => const Profil(),
-                      ), // Navigate to Profil screen
+                      MaterialPageRoute(builder: (context) => const Profil()),
                     );
                   },
                 ),
@@ -196,7 +185,7 @@ class _Drawer_menuState extends State<Drawer_menu> {
                       context,
                       MaterialPageRoute(
                         builder: (context) => const Mes_demandes(),
-                      ), // Navigate to Profil screen
+                      ),
                     );
                   },
                 ),
@@ -207,20 +196,16 @@ class _Drawer_menuState extends State<Drawer_menu> {
                     style: menu_link.customStyle,
                   ),
                   onTap: () async {
-                    Navigator.pop(context); // Ferme le Drawer
+                    Navigator.pop(context);
 
-                    // 🔐 Déconnexion Firebase
                     await FirebaseAuth.instance.signOut();
 
-                    // 🧹 Optionnel : vider SharedPreferences
                     final prefs = await SharedPreferences.getInstance();
                     await prefs.remove("user_id");
 
-                    // 🚪 Redirection vers l'écran de connexion
                     Navigator.of(context).pushAndRemoveUntil(
                       MaterialPageRoute(builder: (context) => Connexion()),
-                      (Route<dynamic> route) =>
-                          false, // Supprime toutes les routes précédentes
+                      (Route<dynamic> route) => false,
                     );
                   },
                 ),

@@ -128,7 +128,6 @@ class _Analyses_medicalesState extends State<Analyses_medicales> {
     });
   }
 
-  // Met à jour les prix des éléments sélectionnés
   Future<void> updateSelectedPrices() async {
     Map<String, double> updatedPrices = {};
     for (final item in selectedItems) {
@@ -161,7 +160,6 @@ class _Analyses_medicalesState extends State<Analyses_medicales> {
         body: isLoading
             ? const Center(child: CircularProgressIndicator())
             : SingleChildScrollView(
-                // Ajout d'un SingleChildScrollView pour éviter les erreurs de débordement
                 padding: const EdgeInsets.all(20.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -218,7 +216,7 @@ class _Analyses_medicalesState extends State<Analyses_medicales> {
                             ),
                           ),
                           const SizedBox(height: 10),
-                          // Affichage sans défilement
+
                           ...selectedItems.map(
                             (item) => Padding(
                               padding: const EdgeInsets.only(bottom: 8.0),

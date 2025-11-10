@@ -231,7 +231,6 @@ class _ConsultationsState extends State<Consultations> {
                             ),
                           ),
                           const SizedBox(height: 10),
-                          // Suppression du ListView.builder pour ne pas avoir de défilement
                           ...selectedItems.map(
                             (item) => Padding(
                               padding: const EdgeInsets.only(bottom: 8.0),
